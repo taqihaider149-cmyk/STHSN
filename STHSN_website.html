@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STHSN — Syed Taqi Haider</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2e;--panel2:#18233b;--text:#f4f7ff;--muted:#aab6d0;--accent:#6c63ff;--pink:#ff4f91;--line:#293654}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#090d19,#101a32);color:var(--text);font-family:Arial,"Noto Nastaliq Urdu",sans-serif}
+header{position:sticky;top:0;z-index:5;background:#0b1020ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:13px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:1px}.logo{width:43px;height:43px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--pink));display:grid;place-items:center;font-size:25px;box-shadow:0 5px 20px #6c63ff55}
+header small{display:block;color:var(--muted);font-size:11px;letter-spacing:0}
+button,.btn{border:0;border-radius:12px;padding:11px 15px;color:white;background:var(--accent);font-weight:700;cursor:pointer}button:hover,.btn:hover{filter:brightness(1.12)}.outline{background:transparent;border:1px solid var(--line)}
+.layout{max-width:1150px;margin:24px auto;padding:0 16px;display:grid;grid-template-columns:235px minmax(0,1fr) 240px;gap:18px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:16px}
+h2,h3,p{margin-top:0}.muted{color:var(--muted);font-size:14px;line-height:1.6}
+.navitem{padding:12px;border-radius:12px;margin:4px 0;color:var(--muted);cursor:pointer}.navitem.active,.navitem:hover{background:var(--panel2);color:white}
+.profile{text-align:center}.avatar{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,#7b72ff,#ff5f9e);display:grid;place-items:center;font-size:34px;margin:0 auto 12px}
+.stats{display:flex;justify-content:space-around;margin-top:16px}.stats b{display:block}.stats span{font-size:12px;color:var(--muted)}
+.composer textarea,input{width:100%;border:1px solid var(--line);background:#0c1426;color:white;border-radius:12px;padding:12px;outline:none;font:inherit}.composer textarea{min-height:80px;resize:vertical}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px;align-items:center}.upload-label{display:inline-block;padding:10px 13px;border:1px solid var(--line);border-radius:12px;cursor:pointer;color:var(--muted);font-size:14px}.post{overflow:hidden}.posthead{display:flex;gap:10px;align-items:center;margin-bottom:14px}.miniavatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#7b72ff,#ff5f9e);display:grid;place-items:center;font-weight:bold}.posthead small{color:var(--muted)}.postbody{line-height:1.7;white-space:pre-wrap}.postmedia{width:100%;max-height:520px;object-fit:contain;border-radius:14px;background:#080c15;margin-top:12px}.postactions{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:13px;margin-top:14px}.postactions button{background:var(--panel2);font-size:14px}.postactions button.liked{background:#52213e;color:#ff91bd}.comments{margin-top:12px}.comment{background:#0c1426;border-radius:10px;padding:9px 11px;margin-top:8px;font-size:14px}.commentrow{display:flex;gap:7px;margin-top:9px}.commentrow input{flex:1;min-width:0}.tag{display:inline-block;background:#25234e;color:#c9c5ff;border-radius:20px;padding:6px 10px;font-size:12px;margin:3px}.hero{padding:22px;background:linear-gradient(120deg,#28255f,#24203b 60%,#4a1f46);border-radius:18px;margin-bottom:16px}.hero h2{margin-bottom:8px}.notice{font-size:12px;color:var(--muted);line-height:1.6}.empty{text-align:center;padding:28px;color:var(--muted)}footer{text-align:center;color:var(--muted);padding:20px;font-size:12px}
+@media(max-width:900px){.layout{grid-template-columns:1fr 2fr}.right{display:none}}@media(max-width:620px){header{padding:10px 14px}.layout{display:block;margin-top:14px}.left{display:none}.hero{padding:18px}.panel{padding:14px}.brand{font-size:14px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="logo">S</div><div>STHSN<small>Syed Taqi Haider</small></div></div>
+ <button onclick="document.getElementById('postText').focus()">＋ Create Post</button>
+</header>
+<div class="layout">
+ <aside class="left">
+  <div class="panel profile"><div class="avatar">S</div><h3>STHSN</h3><p class="muted">Welcome to our community!</p><div class="stats"><div><b id="postCount">0</b><span>Posts</span></div><div><b id="followerCount">128</b><span>Followers</span></div></div><button style="width:100%;margin-top:16px" onclick="followPage(this)">＋ Follow Page</button></div>
+  <div class="panel"><div class="navitem active" onclick="scrollTo(0,0)">🏠 Home Feed</div><div class="navitem" onclick="document.getElementById('postText').focus()">🎬 Create Post</div><div class="navitem" onclick="document.getElementById('uploadFile').click()">📤 Upload Media</div><div class="navitem" onclick="sharePage()">🔗 Share STHSN</div></div>
+ </aside>
+ <main>
+  <section class="hero"><h2>Welcome to STHSN 👋</h2><p class="muted">اپنی ویڈیوز، خیالات اور یادیں شیئر کریں۔ اپنی کمیونٹی سے جڑے رہیں!</p><span class="tag">#STHSN</span><span class="tag">#Community</span></section>
+  <section class="panel composer"><h3>📝 Create a post</h3><textarea id="postText" placeholder="What would you like to share? یہاں لکھیں..."></textarea><div class="actions"><label class="upload-label" for="uploadFile">📷 Add photo/video</label><input id="uploadFile" type="file" accept="image/*,video/*" hidden><span id="fileName" class="muted">No file selected</span><button onclick="publishPost()">Publish Post</button></div><p class="notice" style="margin:12px 0 0">Demo version: posts are shown in this browser session. Real user accounts and permanent video hosting require a backend.</p></section>
+  <div id="feed"><div class="panel empty" id="empty">آپ کی پہلی پوسٹ کا انتظار ہے ✨<br><small>اوپر لکھ کر “Publish Post” دبائیں۔</small></div></div>
+ </main>
+ <aside class="right"><div class="panel"><h3>✨ About STHSN</h3><p class="muted">A place to share moments, videos and ideas with your community.</p></div><div class="panel"><h3>📈 Community</h3><p class="muted">Create a post, add media, like posts and leave comments.</p><div class="tag">Friendly</div><div class="tag">Creative</div><div class="tag">Social</div></div><div class="panel"><h3>🔐 Privacy</h3><p class="notice">اس نمونے میں پاس ورڈ یا ذاتی معلومات درج نہ کریں۔ یہ ابھی حقیقی لاگ اِن سسٹم نہیں ہے۔</p></div></aside>
+</div>
+<footer>© 2026 STHSN — Syed Taqi Haider</footer>
+<script>
+let selectedFile=null,posts=0;
+const fileInput=document.getElementById('uploadFile');
+fileInput.addEventListener('change',()=>{selectedFile=fileInput.files[0]||null;document.getElementById('fileName').textContent=selectedFile?selectedFile.name:'No file selected';});
+function publishPost(){
+ const text=document.getElementById('postText').value.trim();
+ if(!text&&!selectedFile){alert('Please write something or choose a photo/video.');return;}
+ document.getElementById('empty')?.remove();
+ const card=document.createElement('article');card.className='panel post';
+ const head=document.createElement('div');head.className='posthead';head.innerHTML='<div class="miniavatar">S</div><div><b>STHSN</b><br><small>Just now · Public</small></div>';card.appendChild(head);
+ if(text){const body=document.createElement('div');body.className='postbody';body.textContent=text;card.appendChild(body);}
+ if(selectedFile){const url=URL.createObjectURL(selectedFile);let media;if(selectedFile.type.startsWith('video/')){media=document.createElement('video');media.controls=true;}else{media=document.createElement('img');media.alt='Uploaded media';}media.src=url;media.className='postmedia';card.appendChild(media);}
+ const actions=document.createElement('div');actions.className='postactions';
+ const like=document.createElement('button');like.innerHTML='♡ Like <span>0</span>';let liked=false;like.onclick=()=>{liked=!liked;let n=Number(like.querySelector('span').textContent)+(liked?1:-1);like.querySelector('span').textContent=n;like.classList.toggle('liked',liked);like.firstChild.textContent=liked?'♥ Like ':'♡ Like ';};actions.appendChild(like);
+ const commentBtn=document.createElement('button');commentBtn.textContent='💬 Comment';actions.appendChild(commentBtn);
+ const share=document.createElement('button');share.textContent='↗ Share';share.onclick=()=>sharePage();actions.appendChild(share);card.appendChild(actions);
+ const comments=document.createElement('div');comments.className='comments';const row=document.createElement('div');row.className='commentrow';const input=document.createElement('input');input.placeholder='Write a comment...';const send=document.createElement('button');send.textContent='Send';send.onclick=()=>{if(input.value.trim()){const c=document.createElement('div');c.className='comment';c.textContent='You: '+input.value.trim();comments.insertBefore(c,row);input.value='';}};row.append(input,send);comments.appendChild(row);commentBtn.onclick=()=>input.focus();card.appendChild(comments);
+ document.getElementById('feed').prepend(card);document.getElementById('postText').value='';fileInput.value='';selectedFile=null;document.getElementById('fileName').textContent='No file selected';posts++;document.getElementById('postCount').textContent=posts;
+}
+function followPage(btn){const active=btn.dataset.followed==='yes';btn.dataset.followed=active?'no':'yes';btn.textContent=active?'＋ Follow Page':'✓ Following';document.getElementById('followerCount').textContent=128+(active?0:1);}
+function sharePage(){const url=location.href;if(navigator.share){navigator.share({title:'STHSN — Syed Taqi Haider',text:'Visit STHSN',url}).catch(()=>{});}else if(navigator.clipboard){navigator.clipboard.writeText(url).then(()=>alert('Website link copied!'));}else{alert('Copy the website address from your browser to share it.');}}
+</script>
+</body>
+</html>
